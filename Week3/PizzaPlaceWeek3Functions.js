@@ -23,26 +23,33 @@ function getPizzaOrder(size,crust,toppings){
 
 function preparePizza(Arr){
     class PALACEPIZZA {
-        constructor(Pizza){
+        constructor(size,crust,toppings,Pizza){
             Pizza = {};
+            Pizza.size = size;
+            Pizza.crust = crust;
+            Pizza.toppings = toppings;
             this.Pizza = Pizza;
         }
     add(Val,Name){
         this.Pizza[Val] = Name;
         }
+    list(){
+        console.log(this.Pizza);
     }
-    let FirstPizza = new PALACEPIZZA(); // use class to construct a new pizza
-    // FirstPizza.add("Chicken","NUGGETS");
-    // console.log(FirstPizza.Pizza.Chicken);
-    FirstPizza.add("Size",Arr[0]);
-    FirstPizza.add("Crust",Arr[1]);
-    FirstPizza.add("Toppings",Arr[2]);
+    }
+    let FirstPizza = new PALACEPIZZA(Arr[0],Arr[1],Arr[2]); // use class to construct a new pizza
     console.log("Pizza is Cookin'...");
-    for (let Y in FirstPizza.pizza){
-        console.log(FirstPizza.pizza[Y]);
-    }
+    FirstPizza.list();
+    return FirstPizza.Pizza;
 };
 
+function servePizza(PizzaOrder){
+    let Size = PizzaOrder.size;
+    let Crust = PizzaOrder.crust;
+    let toppings = PizzaOrder.toppings;
+    console.log(`Here's your ${Size} ${Crust} Pizza with ${toppings}!`);
+}
 
-
-preparePizza(getPizzaOrder("Large","Thick", ["Pepperoni","Red-Peppers","SQUIDS"]));
+let Order = getPizzaOrder("Large","Thick",["Pepperoni","Red-Peppers","SQUIDS"]);
+let Making = preparePizza(Order);
+let final = servePizza(Making);
