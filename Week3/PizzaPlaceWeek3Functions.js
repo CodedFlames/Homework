@@ -47,9 +47,9 @@ function servePizza(PizzaOrder){
     let Size = PizzaOrder.size;
     let Crust = PizzaOrder.crust;
     let toppings = PizzaOrder.toppings;
-    console.log(`Here's your ${Size} ${Crust} Pizza with ${toppings}!`);
+    console.log(`Here's your ${Size} ${Crust} crust Pizza with ${toppings}!`);
 }
 
-let Order = getPizzaOrder("Large","Thick",["Pepperoni","Red-Peppers","SQUIDS"]);
+let Order = getPizzaOrder("Large","Thick",[" Pepperoni "," Red-Peppers "," Sausage "]);
 let Making = preparePizza(Order);
 let final = servePizza(Making);
