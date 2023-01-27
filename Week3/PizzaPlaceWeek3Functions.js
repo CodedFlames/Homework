@@ -3,8 +3,11 @@ let pizzaToppings = ["Pepperoni", "Red-Peppers", "Sausage", "Canadian-Bacon", "C
 
 function listToppings(Toppings) {
     let txt = '';
+    if (Toppings[0] == "Cheese"){
+        return;
+    }
     for (let x in Toppings) {
-        let Test = (V) => {return V == Toppings[x]}; //declare function for our .find
+        let Test = (V) => V == Toppings[x]; //declare function for our .find
         let checkit = pizzaToppings.find(Test); //.find on pizzatoppings method runs and jumps to Test
         if (checkit == undefined) { //If one of the items in our 'test' on checkit comes back as undefined, print it doesn't exist.
             return false;
@@ -71,14 +74,20 @@ function servePizza(PizzaOrder) {
     let Size = PizzaOrder.size;
     let Crust = PizzaOrder.crust;
     let toppings = PizzaOrder.toppings;
-    console.log(`Here's your ${Size} ${Crust} crust Pizza with`);
+    if (toppings[0] == "Cheese"){
+        console.log(`Here's your ${Size} ${Crust} crust cheese pizza!`)
+    }else{
+    console.log(`Here's your ${Size} ${Crust} crust Pizza with!`);
     listToppings(toppings);
+    }
 }
 
 
 greetCustomer();
 
-let Order = getPizzaOrder("Large", "Thick");
+let Order = getPizzaOrder("Large", "Thick"); // With nothing = cheese
+
+// let Order = getPizzaOrder("Large", "Thin", "Red-Peppers","Pepperoni");
 
 let Making = preparePizza(Order);
 
