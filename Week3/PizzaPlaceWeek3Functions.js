@@ -1,4 +1,4 @@
-let pizzaToppings = ["Pepperoni","Red-Peppers","Sausage","Canadian-Bacon"];
+let pizzaToppings = ["Pepperoni","Red-Peppers","Sausage","Canadian-Bacon","Cheese"]; //Kinda had to add cheese as a topping so it wouldn't flag on my listToppings function
 
 function listToppings(Toppings){
     let txt = '';
@@ -20,13 +20,18 @@ function listToppings(Toppings){
 
 function greetCustomer(){
     console.log("Welcome to Johnny's Pizza Palace! Our toppings are; ")
-    for (let i = 0; i < pizzaToppings.length; i++){
-        console.log(pizzaToppings[i]);
+    for (let i of pizzaToppings){
+        console.log(i);
     }
 };
 
-function getPizzaOrder(size,crust,toppings){
-    console.log(`One ${size} ${crust} crust Pizza coming up with`);
+function getPizzaOrder(size,crust, ...toppings){
+    if (toppings.length === 0 ){
+        console.log(`One ${size} ${crust} crust cheese pizza.`);
+        toppings.push("Cheese");
+    }else{
+        console.log(`One ${size} ${crust} crust Pizza coming up with`);
+    }
     let tst = listToppings(toppings);
     if (tst === false){
          console.log("PLEASE REORDER, that is not a topping.")
@@ -65,7 +70,7 @@ function servePizza(PizzaOrder){
     console.log(`Here's your ${Size} ${Crust} crust Pizza with`);
     listToppings(toppings);
 }
-
-let Order = getPizzaOrder("Large","Thick",["Pepperoni","Red-Peppers","SQUIDS"]);
+greetCustomer();
+let Order = getPizzaOrder("Large","Thick");
 let Making = preparePizza(Order);
 let final = servePizza(Making);
