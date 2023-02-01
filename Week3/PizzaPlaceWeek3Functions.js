@@ -1,6 +1,4 @@
-let pizzaToppings = ["Pepperoni", "Red-Peppers", "Sausage", "Canadian-Bacon", "Cheese"]; //Kinda had to add cheese as a topping so it wouldn't flag on my listToppings function
-
-
+let pizzaToppings = ["Pepperoni", "Red-Peppers", "Sausage", "Canadian-Bacon"]
 function listToppings(Toppings) {
     let txt = '';
     if (Toppings[0] == "Cheese"){
@@ -18,15 +16,17 @@ function listToppings(Toppings) {
         txt += (Toppings[x]);
         txt += (' ');
     }
-    return console.log(txt); //string needs to combine
+    return txt
 }
 
 
 function greetCustomer() {
-    console.log("Welcome to Johnny's Pizza Palace! Our toppings are; ")
+    let alltext = '';
     for (let i of pizzaToppings) {
-        console.log(i); //all one string
+    alltext += i;
+    alltext += " "; //empty space
     }
+    console.log(`Welcome to Johnny's pizza palace! our toppings are ${alltext}`)
 };
 
 
@@ -35,12 +35,12 @@ function getPizzaOrder(size, crust, ...toppings) {
         console.log(`One ${size} ${crust} crust cheese pizza.`);
         toppings.push("Cheese");
     } else {
-        console.log(`One ${size} ${crust} crust Pizza coming up with`); //string's need to combine
+        console.log(`One ${size} ${crust} crust Pizza coming up with ${listToppings(toppings)}`); //string's need to combine
     }
-    let tst = listToppings(toppings); //here
+    let tst = listToppings(toppings);
     if (tst === false) {
         console.log("PLEASE REORDER, that is not a topping.")
-        return null;
+        return null; //purposely throwing an error for if it can't "find" correctly (line 8 & 9 & 10)
     }
     let pizza = [size, crust, toppings];
     return pizza
@@ -48,24 +48,14 @@ function getPizzaOrder(size, crust, ...toppings) {
 
 
 function preparePizza(Arr) {
-    class PALACEPIZZA {
-        constructor(size, crust, toppings, Pizza) {
-            Pizza = {};
-            Pizza.size = size;
-            Pizza.crust = crust;
-            Pizza.toppings = toppings; //turn this into only an object
-            this.Pizza = Pizza;
-        }
-        add(Val, Name) {
-            this.Pizza[Val] = Name;
-        }
-        list() {
-            console.log(this.Pizza);
-        }
-    }
-    let FirstPizza = new PALACEPIZZA(Arr[0], Arr[1], Arr[2]); 
+    let pizza = {};
+
+    pizza.size = Arr[0];
+    pizza.crust = Arr[1];
+    pizza.toppings = Arr[2];
+
     console.log("Pizza is Cookin'...");
-    return FirstPizza.Pizza;
+    return pizza
 };
 
 
@@ -77,17 +67,18 @@ function servePizza(PizzaOrder) {
     if (toppings[0] == "Cheese"){
         console.log(`Here's your ${Size} ${Crust} crust cheese pizza!`)
     }else{
-    console.log(`Here's your ${Size} ${Crust} crust Pizza with!`); //have one string
-    listToppings(toppings);
+    console.log(`Here's your ${Size} ${Crust} crust Pizza with! ${listToppings(toppings)}`);
     }
 }
 
 
 greetCustomer();
 
-let Order = getPizzaOrder("Large", "Thick","Squids"); // With nothing = cheese
+// let Order = getPizzaOrder("Large", "Deep dish"); //will assume plain cheese.
 
-// let Order = getPizzaOrder("Large", "Thin", "Red-Peppers","Pepperoni");
+// let Order = getPizzaOrder("Large", "Thick","Squids"); // wrong topping, will error after telling you to reorder
+
+let Order = getPizzaOrder("Large", "Thin", "Red-Peppers","Pepperoni"); //Normal pizza operations
 
 let Making = preparePizza(Order);
 
