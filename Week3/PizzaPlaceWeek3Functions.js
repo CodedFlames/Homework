@@ -1,4 +1,5 @@
 let pizzaToppings = ["Pepperoni", "Red-Peppers", "Sausage", "Canadian-Bacon"]
+
 function listToppings(Toppings) {
     let txt = '';
     if (Toppings[0] == "Cheese"){
