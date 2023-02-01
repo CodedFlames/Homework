@@ -18,14 +18,14 @@ function listToppings(Toppings) {
         txt += (Toppings[x]);
         txt += (' ');
     }
-    return console.log(txt);
+    return console.log(txt); //string needs to combine
 }
 
 
 function greetCustomer() {
     console.log("Welcome to Johnny's Pizza Palace! Our toppings are; ")
     for (let i of pizzaToppings) {
-        console.log(i);
+        console.log(i); //all one string
     }
 };
 
@@ -35,9 +35,9 @@ function getPizzaOrder(size, crust, ...toppings) {
         console.log(`One ${size} ${crust} crust cheese pizza.`);
         toppings.push("Cheese");
     } else {
-        console.log(`One ${size} ${crust} crust Pizza coming up with`);
+        console.log(`One ${size} ${crust} crust Pizza coming up with`); //string's need to combine
     }
-    let tst = listToppings(toppings);
+    let tst = listToppings(toppings); //here
     if (tst === false) {
         console.log("PLEASE REORDER, that is not a topping.")
         return null;
@@ -53,7 +53,7 @@ function preparePizza(Arr) {
             Pizza = {};
             Pizza.size = size;
             Pizza.crust = crust;
-            Pizza.toppings = toppings;
+            Pizza.toppings = toppings; //turn this into only an object
             this.Pizza = Pizza;
         }
         add(Val, Name) {
@@ -63,9 +63,8 @@ function preparePizza(Arr) {
             console.log(this.Pizza);
         }
     }
-    let FirstPizza = new PALACEPIZZA(Arr[0], Arr[1], Arr[2]); // use class to construct a new pizza
+    let FirstPizza = new PALACEPIZZA(Arr[0], Arr[1], Arr[2]); 
     console.log("Pizza is Cookin'...");
-    FirstPizza.list();
     return FirstPizza.Pizza;
 };
 
@@ -74,10 +73,11 @@ function servePizza(PizzaOrder) {
     let Size = PizzaOrder.size;
     let Crust = PizzaOrder.crust;
     let toppings = PizzaOrder.toppings;
+
     if (toppings[0] == "Cheese"){
         console.log(`Here's your ${Size} ${Crust} crust cheese pizza!`)
     }else{
-    console.log(`Here's your ${Size} ${Crust} crust Pizza with!`);
+    console.log(`Here's your ${Size} ${Crust} crust Pizza with!`); //have one string
     listToppings(toppings);
     }
 }
@@ -85,7 +85,7 @@ function servePizza(PizzaOrder) {
 
 greetCustomer();
 
-let Order = getPizzaOrder("Large", "Thick"); // With nothing = cheese
+let Order = getPizzaOrder("Large", "Thick","Squids"); // With nothing = cheese
 
 // let Order = getPizzaOrder("Large", "Thin", "Red-Peppers","Pepperoni");
 
