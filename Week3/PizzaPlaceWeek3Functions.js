@@ -8,7 +8,7 @@ function listToppings(Toppings) {
     for (let x in Toppings) {
         let Test = (V) => V == Toppings[x]; //declare function for our .find
         let checkit = pizzaToppings.find(Test); //.find on pizzatoppings method runs and jumps to Test
-        if (checkit == undefined) { //If one of the items in our 'test' on checkit comes back as undefined, print it doesn't exist.
+        if (checkit == undefined) { //If one of the items in our 'test' on checkit comes back as undefined, return false to notify.
             return false;
         }
         if (x == Toppings.length - 1) {
@@ -36,12 +36,12 @@ function getPizzaOrder(size, crust, ...toppings) {
         console.log(`One ${size} ${crust} crust cheese pizza.`);
         toppings.push("Cheese");
     } else {
-        console.log(`One ${size} ${crust} crust Pizza coming up with ${listToppings(toppings)}`); //string's need to combine
+        console.log(`One ${size} ${crust} crust Pizza coming up with ${listToppings(toppings)}`);
     }
     let tst = listToppings(toppings);
     if (tst === false) {
         console.log("PLEASE REORDER, that is not a topping.")
-        return null; //purposely throwing an error for if it can't "find" correctly (line 8 & 9 & 10)
+        return null; //purposely throwing an error for if it can't "find" correctly (line 8 to 11)
     }
     let pizza = [size, crust, toppings];
     return pizza
