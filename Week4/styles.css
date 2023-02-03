@@ -1,0 +1,43 @@
+/* color scheme; #5299D3 , #DE4D86 , white , black*/
+
+body {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+#Title {
+    background-color: #5299D3;
+    color: white;
+}
+
+.BIGGEST {
+    font-size: 70px;
+}
+
+.BIG {
+    font-size: 45px;
+}
+
+nav > h2, nav > h1{
+    margin: 0px 0px;
+}
+
+#BIRDS, #FISH {
+    background-color: #5299D3;
+    color: white;
+    margin: 150px auto;
+    font-size: 40px;
+    width: 150px;
+}
+
+#BIRDS > h2:hover,#FISH > h2:hover {
+    color: #DE4D86;
+}
+
+
+#FISH > ol > li, #BIRDS > ol > li {
+    padding: 50px 0px;
+    width: 300px;
+}
+
