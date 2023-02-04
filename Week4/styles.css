@@ -23,7 +23,7 @@ nav > h2, nav > h1{
     margin: 0px 0px;
 }
 
-#BIRDS, #FISH {
+#BIRD, #FISH {
     background-color: #5299D3;
     color: white;
     margin: 150px auto;
@@ -31,12 +31,12 @@ nav > h2, nav > h1{
     width: 150px;
 }
 
-#BIRDS > h2:hover,#FISH > h2:hover {
+#BIRD > h2:hover,#FISH > h2:hover {
     color: #DE4D86;
 }
 
 
-#FISH > ol > li, #BIRDS > ol > li {
+#FISH > ol > li, #BIRD > ol > li {
     padding: 50px 0px;
     width: 300px;
 }

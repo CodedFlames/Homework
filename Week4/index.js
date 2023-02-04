@@ -1,69 +1,106 @@
-let fishdiv = document.querySelector("#FISH");
-let birddiv = document.querySelector("#BIRDS");
-let active = false;
+let Fishpage = false;
+let birdpage = false;
+
+function Bird(){
+    let FactList = document.createElement('ol');
+    //li items
+    let item1 = document.createElement('li');
+    let item2 = document.createElement('li');
+    let item3 = document.createElement('li');
+    //imgs
+    let img1 = document.createElement('img');
+
+
+    img1.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Falco_peregrinus_m_Humber_Bay_Park_Toronto.jpg/220px-Falco_peregrinus_m_Humber_Bay_Park_Toronto.jpg'
+    img1.alt = 'A Peregrine falcon on a tree limb.'
+
+    item1.style.margin = "10px";
+    item2.style.margin = "10px";
+    item3.style.margin = "10px";
+
+
+    item1.innerHTML = `Peregrine falcon -`;
+
+
+    item2.innerHTML = `Golden eagle - `;
+
+
+    item3.innerHTML = `White-throated needletail -`;
 
 
 
-function fishpage(){
-console.log("Fish was clicked");
-
-let FactList = document.createElement("ol");
-let NumList = {};
-let Paras =  {};
-
-for (let i = 0; i < 3; i++){
-    let title = `list${i}`;
-    NumList[title] = document.createElement("li");
-    NumList[title].id = title;
-}
-
-for (let i = 0; i < 3; i++){
-    let title = `P${i}`
-    Paras[title] = document.createElement("p");
-}
-
-Paras.P0.innerHTML = 'This is a peregrine falcon.';
-Paras.P1.innerHTML = 'This is a golden eagle.';
-Paras.P2.innerHTML = 'This is a white-throated needletail.';
-
-// let paradiv = document.createElement("div");
 
 
-NumList.list0.innerHTML = 'Peregrine-falcon'
-NumList.list1.innerHTML = 'Golden eagle'
-NumList.list2.innerHTML = 'White-throated needletail'
-
-
-if(!active){
-    active = true;
-    // fishdiv.appendChild(paradiv);
-
-    fishdiv.appendChild(FactList)
-    for (let x in NumList){
-        console.log(NumList[x])
-        FactList.appendChild(NumList[x]);
+    if (!birdpage){
+        birdpage = true;
+        document.querySelector("#BIRD").appendChild(FactList);
+        FactList.appendChild(item1);
+        FactList.appendChild(item2);
+        FactList.appendChild(item3);
+        item1.appendChild(img1);
+        document.querySelector("#BIRD").style.width = '1000px';
+    }else{
+        birdpage = false;
+        document.querySelector("#BIRD").lastChild.remove();
+        document.querySelector("#BIRD").style.width = '150px';
     }
+}
 
-    for (let x in Paras){
-        console.log(Paras[x])
-        let selection = `list${x}`
-        NumList[selection].appendChild(Paras[x]);
+
+
+
+
+
+
+
+function Fish(){
+    let FactList = document.createElement('ol');
+    //li items
+    let item1 = document.createElement('li');
+    let item2 = document.createElement('li');
+    let item3 = document.createElement('li');
+    //imgs
+    let img1 = document.createElement('img');
+
+
+    img1.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Maind_u0.gif/220px-Maind_u0.gif'
+    img1.alt = 'A Peregrine falcon on a tree limb.'
+
+
+    item1.style.margin = "10px";
+    item2.style.margin = "10px";
+    item3.style.margin = "10px";
+
+
+    item1.innerHTML = `Black marlin -`;
+
+
+    item2.innerHTML = `Sailfish - `;
+
+
+    item3.innerHTML = `Swordfish - `;
+
+
+
+
+
+    if (!Fishpage){
+        Fishpage = true;
+        document.querySelector("#FISH").appendChild(FactList);
+        FactList.appendChild(item1);
+        FactList.appendChild(item2);
+        FactList.appendChild(item3);
+        item1.appendChild(img1);
+        document.querySelector("#FISH").style.width = '1000px';
+    }else{
+        Fishpage = false;
+        document.querySelector("#FISH").lastChild.remove();
+        document.querySelector("#FISH").style.width = '150px';
     }
-
-
-    document.querySelector("#FISH").style = "padding-right: 1200px;"
-}else{
-    fishdiv.lastChild.remove();
-    document.querySelector("#FISH").style = ""
-    active = false;
-}
 }
 
 
-function birdpage(){
-console.log("bird was clicked.")
-}
 
 
-document.querySelector("#FISH > h2").addEventListener("click", fishpage);
-birddiv.addEventListener("click", birdpage);
+document.querySelector("#FISH > h2").addEventListener("click", Fish);
+document.querySelector("#BIRD > h2").addEventListener("click", Bird);
