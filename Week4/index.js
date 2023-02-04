@@ -9,23 +9,34 @@ function Bird(){
     let item3 = document.createElement('li');
     //imgs
     let img1 = document.createElement('img');
+    let img2 = document.createElement('img');
+    let img3 = document.createElement('img');
 
-
-    img1.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Falco_peregrinus_m_Humber_Bay_Park_Toronto.jpg/220px-Falco_peregrinus_m_Humber_Bay_Park_Toronto.jpg'
+    img1.src = './images/Falcon.png';
+    img2.src = './images/eagle.png';
+    img3.src = './images/needletail.png';
+    
+    
     img1.alt = 'A Peregrine falcon on a tree limb.'
+    img2.alt = 'A golden eagle standing on a tree limb.'
+    img3.alt = 'A White-throated needletail flying in the sky.'
+
 
     item1.style.margin = "10px";
     item2.style.margin = "10px";
     item3.style.margin = "10px";
+    item1.style.width = "580px";
+    item2.style.width = "580px";
+    item3.style.width = "580px";
 
 
-    item1.innerHTML = `Peregrine falcon -`;
+    item1.innerHTML = `Peregrine falcon - Speed of 242 MPH (389 km/h) while diving.`;
 
 
-    item2.innerHTML = `Golden eagle - `;
+    item2.innerHTML = `Golden eagle - Speed of 150 MPH (240 km/h) while diving.`;
 
 
-    item3.innerHTML = `White-throated needletail -`;
+    item3.innerHTML = `White-throated needletail - Speed of 105 MPH (169 km/h) in flight.`;
 
 
 
@@ -37,7 +48,10 @@ function Bird(){
         FactList.appendChild(item1);
         FactList.appendChild(item2);
         FactList.appendChild(item3);
+        //img append
         item1.appendChild(img1);
+        item2.appendChild(img2);
+        item3.appendChild(img3);
         document.querySelector("#BIRD").style.width = '1000px';
     }else{
         birdpage = false;
@@ -61,24 +75,36 @@ function Fish(){
     let item3 = document.createElement('li');
     //imgs
     let img1 = document.createElement('img');
+    let img2 = document.createElement('img');
+    let img3 = document.createElement('img');
 
 
-    img1.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Maind_u0.gif/220px-Maind_u0.gif'
-    img1.alt = 'A Peregrine falcon on a tree limb.'
+    img1.src = './images/Black Marlin.png';
+    img2.src = './images/Sailfish.png';
+    img3.src = './images/Swordfish.png';
+    
+    
+    img1.alt = 'A Black Marlin swimming.';
+    img2.alt = 'A rendering of a Sailfish.';
+    img3.alt = 'A Swordfish in low-light, swimming.';
 
 
     item1.style.margin = "10px";
     item2.style.margin = "10px";
     item3.style.margin = "10px";
+    item1.style.width = "580px";
+    item2.style.width = "580px";
+    item3.style.width = "580px";
 
 
-    item1.innerHTML = `Black marlin -`;
+
+    item1.innerHTML = `Black marlin - Speed of 82 MPH (132 km/h) while swimming.`;
 
 
-    item2.innerHTML = `Sailfish - `;
+    item2.innerHTML = `Sail Fish - Speed of 68 MPH (109 km/h) while swimming.`;
 
 
-    item3.innerHTML = `Swordfish - `;
+    item3.innerHTML = `Sword Fish - Speed of 60 MPH (97 km/h) while swimming.`;
 
 
 
@@ -90,7 +116,10 @@ function Fish(){
         FactList.appendChild(item1);
         FactList.appendChild(item2);
         FactList.appendChild(item3);
+        //imgs
         item1.appendChild(img1);
+        item2.appendChild(img2);
+        item3.appendChild(img3);
         document.querySelector("#FISH").style.width = '1000px';
     }else{
         Fishpage = false;

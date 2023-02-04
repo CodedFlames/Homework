@@ -41,3 +41,25 @@ nav > h2, nav > h1{
     width: 300px;
 }
 
+#bar {
+    background-color: #5299D3;
+    height: 75px;
+    width: auto;
+}
+
+#source > h3, #Linkedin > h3 {
+    height: auto;
+    width: auto;
+}
+
+#source {
+    font-size: 23px;
+    margin-left: 300px;
+    float: left;
+}
+
+#Linkedin {
+    font-size: 23px;
+    margin-right: 300px;
+    float: right;
+}
