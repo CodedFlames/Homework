@@ -611,7 +611,7 @@ const data = [
 
 const userFive = data.filter(item => item.userId == 5); // create a list of user 5's posts
 const fiveTitleBody = userFive.map(function apple(item){
-  return {title: item.title, body: item.body};
+  return [item.title,  item.body];
 }); // then, create a list of title and body pairs
 
 console.log(userFive);
